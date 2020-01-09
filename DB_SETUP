@@ -1,0 +1,62 @@
+### DB-SetUp#####
+postgresql:
+--------------
+# pip install psycopg2
+settings.py"
+--------------
+backend as postgres,
+NAME: "VIJAYDB2"
+USER: "postgres"
+PASSWORD: "-----"
+HOST: "localhost"
+
+# pip install mysqlclient
+
+backend as mysql,
+NAME: "VIJAYDB3"
+USER: "mysql"
+PASSWORD: "-----"
+HOST: "localhost"
+
+
+----------------------------------
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'vijaydatabase',
+        'USER': 'postgres',
+        'PASSWORD': 'Asdf123@#',
+        'HOST': 'localhost'
+    }
+}
+
+---------------------------------------------
+--> python manage.py shell
+>> from mymodels2.models import Framework, Language
+
+# list of all languages..
+Language.objects.all()
+
+Framework.objects.all()
+
+# to get individual language/framework
+
+data = Language.objects.get(id=2)     #get gives only a single value..
+print(data)
+
+Language.objects.filter(name='Ruby')             # gives a queryset means more then a single value..
+
+Language.objects.filter(name__icontains = 'h')
+Language.objects.filter(name__startswith='p')
+
+data1=Language.objects.get(id=1)
+data1.framework_set.all()
+Language.objects.all().order_by('name')
+Language.objects.all().order_by('-name')   # descending order..
+
+
+ctrl + /    (used for comments..)
+
+Alt + Enter    get that import..
+null=True  (empty in db)
+blank=True (empty in form)

@@ -1,0 +1,28 @@
+For customizing admin we need to extend our admin model with ModelAdmin class..
+and we need to include field lookups to reflect in the dashboard..
+
+
+attributes/field lookups in admin :
+---------------------------------
+list_display  -->takes a list of attributes/coulumns from table to show in the dashboard..
+list_filter   ---> filter takes a list of items which should be present in list_display..so that it can gives a filter access
+list_editable ---> filter takes a list of items which should be present in list_display..so that it can give a option to edit the data..
+
+
+import pytz
+pytz.all_timezone
+
+list of countries and make a change in settings.py file from UTC-->Asia/Calcutta to get our timezone..
+
+
+Django-Orm:
+-------------
+data= ClassName(attributes)
+data.save()
+
+data = ClassName.objects.create(attributes)
+data.save()
+
+Language.objects.all()---> it gives all the data inside your database..
+
+
